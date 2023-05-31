@@ -1,30 +1,52 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <the-header></the-header>
+  <router-view v-slot="{ Component }">
+    <transition name="route" mode="out-in">
+      <!-- <KeepAlive> -->
+        <component :is="Component" />
+      <!-- </KeepAlive> -->
+    </transition>
+  </router-view>
 </template>
 
+
+<script>
+import { mapActions } from 'vuex'
+import TheHeader from '@/components/TheHeader.vue'
+
+export default {
+  components: { TheHeader },
+  created() {
+    this.loadUsers()
+  },
+  methods: {
+    ...mapActions(['loadUsers']),
+  },
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.route-enter-from {
+  opacity: 0;
+  transform: translateX(30px);
 }
 
-nav {
-  padding: 30px;
+.route-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.route-enter-active {
+  transition: all 0.3s ease-out;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.route-leave-active {
+  transition: all 0.3s ease-in;
+}
+
+.route-enter-to,
+.route-leave-from {
+  opacity: 1;
+  transform: translateX(0);
 }
 </style>
