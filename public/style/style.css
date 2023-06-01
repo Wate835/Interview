@@ -4,9 +4,28 @@ body {
 }
 
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.error {
+  text-align: center;
+}
+
+.error-msg {
+  width: max-content;
+  color: red;
+  position: absolute;
+  bottom: 5px;
+}
+
 .container {
+  padding: 0 3vh;
   max-width: 1274px;
-  width: 100%;
   height: 100%;
   margin: 0 auto;
 }
@@ -20,9 +39,16 @@ body {
   z-index: 10;
 }
 
+.reg-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 .header__wrapper {
-  padding: 9px 0;
+  padding: 9px 10vh;
   width: 100%;
+  max-width: 1274px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,7 +56,6 @@ body {
 
 .header__info {
   margin: 0;
-  margin-left: 83px;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
@@ -40,6 +65,7 @@ body {
 }
 
 .btn {
+  cursor: pointer;
   display: inline-block;
   background: #2F54EB;
   border-radius: 6px;
@@ -47,15 +73,19 @@ body {
   padding: 13px 12px;
   text-decoration: none;
   transition: all .3s;
+  border: none;
+}
+
+.btn:hover {
+  background: #4464e4;
 }
 
 .router-link-active {
   background: #219653;
+  pointer-events: none;
 }
 
-.nav {
-  margin-right: 29px;
-}
+.nav {}
 
 .breadcrumbs {
   margin: 0;
@@ -288,4 +318,9 @@ body {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
+}
+
+.disabled {
+  pointer-events: none;
+  background: gray;
 }

@@ -2,9 +2,9 @@
   <the-header></the-header>
   <router-view v-slot="{ Component }">
     <transition name="route" mode="out-in">
-      <!-- <KeepAlive> -->
+      <KeepAlive>
         <component :is="Component" />
-      <!-- </KeepAlive> -->
+      </KeepAlive>
     </transition>
   </router-view>
 </template>
@@ -20,7 +20,7 @@ export default {
     this.loadUsers()
   },
   methods: {
-    ...mapActions(['loadUsers']),
+    ...mapActions(['loadUsers'])
   },
 }
 </script>
