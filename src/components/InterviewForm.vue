@@ -23,6 +23,7 @@
 import { mapMutations, mapActions } from 'vuex'
 import ProgressBar from './ProgressBar.vue'
 import AnswerField from './AnswerField.vue'
+
 export default {
   props: ['user'],
   components: { ProgressBar, AnswerField },

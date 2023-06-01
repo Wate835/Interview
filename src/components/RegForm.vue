@@ -4,19 +4,19 @@
       <!-- Имя -->
       <div class="reg-field">
         <label class="label" for="fullname">Full Name</label>
-        <input class="input" v-model="name" id="fullname" type="text">
+        <input class="input" v-model="name" id="fullname" type="text" placeholder='Иван Иванов'>
         <span class="error-msg" v-if="errors.name">{{ errors.name }}</span>
       </div>
       <!-- Email -->
       <div class="reg-field">
         <label class="label" for="email">E-mail</label>
-        <input class="input" v-model="email" id="email" type="email">
+        <input class="input" v-model="email" id="email" type="email" placeholder='name@domain.com'>
         <span class="error-msg" v-if="errors.email">{{ errors.email }}</span>
       </div>
       <!-- Телефон -->
       <div class="reg-field">
         <label class="label" for="phone">Phone</label>
-        <input class="input" v-model="phone" id="phone" type="text" oninput="this.value = this.value.replace (/[^0-9+]/g, '')">
+        <input class="input" v-model="phone" id="phone" type="text" placeholder='8 123 456 78 99' oninput="this.value = this.value.replace(/[^0-9+\+?[0-9\s\-\(\)]/g, '')">
         <span class="error-msg" v-if="errors.phone">{{ errors.phone }}</span>
       </div>
       <!-- Кнопки -->
@@ -71,8 +71,8 @@ export default {
       ])) {
         this.$emit('update:user', {
           name: this.name,
-          email: this.email,
-          phone: this.phone,
+          email: this.email.replace(/ /g,''),
+          phone: this.phone.replace(/ /g,''),
           questions: this.questions
         })
       }

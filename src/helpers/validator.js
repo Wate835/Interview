@@ -30,7 +30,7 @@ export default {
       }
     },
     minLength(field, min) {
-      if (String(this[field]).length < min) {
+      if (String(this[field]).replace(/ /g,'').length < min) {
         this.errors[field] = `Минимум ${min} символов`;
       }
     }
