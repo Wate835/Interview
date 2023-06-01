@@ -13,7 +13,7 @@
       </div>
       <div class="reg-field">
         <label class="label" for="phone">Phone</label>
-        <input class="input" v-model="phone" id="phone" type="number">
+        <input class="input" v-model="phone" id="phone" type="text" oninput="this.value = this.value.replace (/[^0-9+]/g, '')">
         <span class="error-msg" v-if="errors.phone">{{ errors.phone }}</span>
       </div>
       <div class="links">
