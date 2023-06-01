@@ -2,11 +2,14 @@
   <div class="inter">
     <h2>Вопросы:</h2>
     <progress-bar v-model:current="current" :items="user.questions"></progress-bar>
+    <!-- Поле с вопросами -->
     <div class="int-wrapper">
+      <!-- Вопросы -->
       <span class="int-text"> Вопрос {{ current }}:</span>
       <label class="que-label" >{{ question.placeholder }}
         <answer-field  v-model:question="question"></answer-field>
       </label>
+      <!-- Кнопки -->
       <a style="margin-right: 31px;" href="#" :class="{disabled: current == 1}" @click.prevent="changeCurr(-1)" class="btn">Вернуться назад</a>
       <a href="#" @click.prevent="changeCurr(1)" v-if="this.current < this.user.questions.length"
         class="btn">Следующий</a>

@@ -1,20 +1,25 @@
 <template>
   <div class="wrapper">
+    <!-- Загаловок -->
     <div class="table-head table-row">
       <div class="">Full Name</div>
       <div class="">E-mail</div>
       <div class="">Phone</div>
       <div class="">Result</div>
     </div>
+    <!-- Во время загрузки -->
     <div class="loader-wrapper" v-if="isLoading">
       <base-loader></base-loader>
     </div>
+    <!-- При возникновении ошибки -->
     <h2 class="error" v-else-if="isLoadingFailed">
       Возникла ошибка при загрузке пользователей. Обратитесь в поддержку или попробуйте позже.
     </h2>
+    <!-- Если список пустой -->
     <h2 class="error" v-else-if="!users.length">
       Пока что список пуст. Пройдите опрос!
     </h2>
+    <!-- Оснвная часть таблицы -->
     <div v-for="user in users" :key="user.id" class="table-row">
       <div class="table-data">{{ user.name }}</div>
       <div class="table-data">{{ user.email }}</div>

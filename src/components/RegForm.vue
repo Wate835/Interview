@@ -1,21 +1,25 @@
 <template>
   <div class="req-wrapper">
     <form class="reg-form" @submit.prevent="initUser">
+      <!-- Имя -->
       <div class="reg-field">
         <label class="label" for="fullname">Full Name</label>
         <input class="input" v-model="name" id="fullname" type="text">
         <span class="error-msg" v-if="errors.name">{{ errors.name }}</span>
       </div>
+      <!-- Email -->
       <div class="reg-field">
         <label class="label" for="email">E-mail</label>
         <input class="input" v-model="email" id="email" type="email">
         <span class="error-msg" v-if="errors.email">{{ errors.email }}</span>
       </div>
+      <!-- Телефон -->
       <div class="reg-field">
         <label class="label" for="phone">Phone</label>
         <input class="input" v-model="phone" id="phone" type="text" oninput="this.value = this.value.replace (/[^0-9+]/g, '')">
         <span class="error-msg" v-if="errors.phone">{{ errors.phone }}</span>
       </div>
+      <!-- Кнопки -->
       <div class="links">
         <router-link class="btn" style="margin-right: 8px;" :to="{ name: 'home' }">Вернуться к списку</router-link>
         <button type="submit" class="btn">
