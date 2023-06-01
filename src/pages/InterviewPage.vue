@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <BreadCrumbs link="Interview" />
-    <reg-form v-model:user="this.user" v-if="!this.user"></reg-form>
-    <interview-form v-model:user="this.user" v-else></interview-form>
+      <reg-form v-model:user="this.user" v-if="!this.user"></reg-form>
+      <interview-form v-model:user="this.user" v-else></interview-form>
   </div>
 </template>
 

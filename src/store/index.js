@@ -1,5 +1,4 @@
 import { createStore } from 'vuex'
-import getters from './getters.js'
 import mutations from './mutations.js'
 import actions from './actions.js'
 
@@ -8,8 +7,6 @@ export default createStore({
     usersData: [],
     isLoading: false,
     isLoadingFailed: false,
-    isSending: false,
-    isSendingFailed: false,
     questionsData: [
       {
         id: 1,
@@ -48,7 +45,6 @@ export default createStore({
       },
     ],
   },
-  getters,
   mutations,
   actions
 })

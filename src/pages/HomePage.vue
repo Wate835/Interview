@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="container">
-      <BreadCrumbs link="List of respondents" />
+      <bread-crumbs link="List of respondents" />
       <main-table></main-table>
     </div>
   </div>
