@@ -6,15 +6,15 @@
     <div class="int-wrapper">
       <!-- Вопросы -->
       <span class="int-text"> Вопрос {{ current }}:</span>
-      <label class="que-label" >{{ question.placeholder }}
-        <answer-field  v-model:question="question"></answer-field>
+      <label class="que-label">{{ question.placeholder }}
+        <answer-field v-model:question="question"></answer-field>
       </label>
       <!-- Кнопки -->
-      <a style="margin-right: 31px;" href="#" :class="{disabled: current == 1}" @click.prevent="changeCurr(-1)" class="btn">Вернуться назад</a>
+      <a style="margin-right: 31px;" href="#" :class="{ disabled: current == 1 }" @click.prevent="changeCurr(-1)"
+        class="btn">Вернуться назад</a>
       <a href="#" @click.prevent="changeCurr(1)" v-if="this.current < this.user.questions.length"
         class="btn">Следующий</a>
-      <router-link :to="{ name: 'home' }" @click.prevent="pushUser(userInProgress)" v-else class="btn">Закончить
-        опрос</router-link>
+      <router-link :to="{ name: 'home' }" @click.prevent="pushUser(userInProgress)" v-else class="btn">Закончить опрос</router-link>
     </div>
   </div>
 </template>
@@ -37,7 +37,7 @@ export default {
       get: function () {
         return this.userInProgress.questions[this.current - 1]
       },
-      set: function(newValue) {
+      set: function (newValue) {
         this.userInProgress.questions[this.current - 1] = newValue
       }
     }
