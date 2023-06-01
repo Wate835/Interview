@@ -7,9 +7,9 @@ import InterviewPage from '../pages/InterviewPage.vue'
 import NotFoundPage from '../pages/NotFoundPage.vue'
 
 const routes = [
-  { path: '/', name: 'home', component: HomePage },
-  { path: '/interview', name: 'interview', component: InterviewPage },
-  { path: '/:pathMatch(.*)*', name: 'notfound', component: NotFoundPage }
+  { path: '/Interview/', name: 'home', component: HomePage },
+  { path: '/Interview/interview', name: 'interview', component: InterviewPage },
+  { path: '/Interview/:pathMatch(.*)*', name: 'notfound', component: NotFoundPage }
 ]
 
 const router = createRouter({
