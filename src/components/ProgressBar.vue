@@ -1,7 +1,7 @@
 <template>
       <div class="progress">
       <div v-for="item in items" :key="item.id" @click="this.$emit('update:current', item.id)" class="que">
-        <div class="line" :class="{ blue: this.current == item.id, gray: isDone(item) }"></div>
+        <div class="line" :class="{ blue: this.current == item.id, gray: isAnswer(item) }"></div>
         <svg v-if="this.current == item.id" width="16" height="16" viewBox="0 0 16 16" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
