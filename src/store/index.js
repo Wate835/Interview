@@ -12,8 +12,9 @@ export default createStore({
         id: 1,
         type: 'text',
         value: null,
-        placeholder: 'Как твои дела?',
+        placeholder: 'Фамилия первого призидента России?',
         answer: null,
+        correctAnswer: 'Ельцин'
       },
       {
         id: 2,
@@ -21,6 +22,7 @@ export default createStore({
         value: ['Где?' , 'Когда?', 'Почему?'],
         placeholder: 'Что?',
         answer: [],
+        correctAnswer: ['Где?', 'Когда?']
       },
       {
         id: 3,
@@ -28,6 +30,7 @@ export default createStore({
         value: ['Vue' , 'React', 'Angular'],
         placeholder: 'На чём написан этот опросник?',
         answer: null,
+        correctAnswer: 'Vue'
       },
       {
         id: 4,
@@ -35,13 +38,15 @@ export default createStore({
         value: ['Машина' , 'Самолёт', 'Ракета'],
         placeholder: 'На чём ты поедешь домой?',
         answer: null,
+        correctAnswer: 'Машина'
       },
       {
         id: 5,
         type: 'number',
         value: null,
-        placeholder: 'Сколько тебе лет?',
+        placeholder: 'В каком году вышел фильм бриллиантовая рука?',
         answer: null,
+        correctAnswer: 1968
       },
     ],
   },
