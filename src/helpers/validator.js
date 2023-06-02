@@ -26,7 +26,7 @@ export default {
       return true
     },
     isTwoWords(field) {
-      if (this[field].split(' ').length != 2) {
+      if (this[field].trim().split(' ').length != 2) {
         this.errors[field] = `Полное имя должно состоять из двух слов`;
       }
     },

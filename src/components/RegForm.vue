@@ -74,8 +74,8 @@ export default {
         },
       ])) {
         this.$emit('update:user', {
-          name: this.name,
-          email: this.email.replace(/ /g,''),
+          name: this.name.trim(),
+          email: this.email.trim(),
           phone: this.phone.replace(/ /g,''),
           questions: this.questions
         })
