@@ -8,6 +8,7 @@ export default {
           if (this.isReq(field.field)) {
             item == 'isTwoWords' && field.validators[item] == true ? this.isTwoWords(field.field) : null
             item == 'minLength' ? this.minLength(field.field, field.validators[item]) : null
+            item == 'isNiceEmail' ? this.isNiceEmail(field.field, field.validators[item]) : null
           }
         }
       }
@@ -33,6 +34,12 @@ export default {
       if (String(this[field]).replace(/ /g,'').length < min) {
         this.errors[field] = `Минимум ${min} символов`;
       }
-    }
+    },
+    isNiceEmail(field) {
+      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      if (!regex.test(this[field])) {
+        this.errors[field] = `Введите правильный Email`;
+      }
+    },
   }
 }

@@ -10,7 +10,7 @@
       <!-- Email -->
       <div class="reg-field">
         <label class="label" for="email">E-mail</label>
-        <input class="input" v-model="email" id="email" type="email" placeholder='name@domain.com'>
+        <input class="input" v-model="email" id="email" type="text" placeholder='name@domain.com'>
         <span class="error-msg" v-if="errors.email">{{ errors.email }}</span>
       </div>
       <!-- Телефон -->
@@ -46,6 +46,9 @@ export default {
     }
   },
   methods: {
+    onSubmit(values) {
+      console.log(values);
+    },
     initUser() {
       if (this.validateForm([
         {
@@ -58,7 +61,8 @@ export default {
         {
           field: 'email',
           validators: {
-            isReq: true
+            isReq: true,
+            isNiceEmail: true
           }
         },
         {
